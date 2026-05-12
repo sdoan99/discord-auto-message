@@ -2,7 +2,7 @@ name: Spidey Bot
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "13/5 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -10,9 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug trigger
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          date -u
+
       - name: Send Discord message
         run: |
-          curl -H "Content-Type: application/json" \
+          curl -f -H "Content-Type: application/json" \
                -X POST \
                -d '{"content":"$SPY"}' \
                "${{ secrets.DISCORD_WEBHOOK_URL }}"
+
+
+
+# refresh

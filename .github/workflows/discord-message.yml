@@ -2,7 +2,7 @@ name: Spidey Bot
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "7/5 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Send Discord message
         run: |
-          curl -H "Content-Type: application/json" \
+          curl -f -H "Content-Type: application/json" \
                -X POST \
                -d '{"content":"$SPY"}' \
                "${{ secrets.DISCORD_WEBHOOK_URL }}"

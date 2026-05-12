@@ -3,7 +3,7 @@ name: Spidey Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "25/5 * * * *"
+    - cron: "23/5 * * * *"
 
 jobs:
   send:
@@ -16,6 +16,3 @@ jobs:
                -X POST \
                -d '{"content":"$SPY"}' \
                "${{ secrets.DISCORD_WEBHOOK_URL }}"
-
-
-# refresh

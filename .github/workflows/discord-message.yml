@@ -14,5 +14,5 @@ jobs:
         run: |
           curl -f -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content":"$SPY"}' \
+               -d '{"content":"$SOXL"}' \
                "${{ secrets.DISCORD_WEBHOOK_URL }}"

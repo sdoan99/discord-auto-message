@@ -1,20 +1,15 @@
 name: Spidey Bot
 
 on:
-  schedule:
-    - cron: "13/5 * * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "17/5 * * * *"
 
 jobs:
   send:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug trigger
-        run: |
-          echo "Triggered by: ${{ github.event_name }}"
-          date -u
-
       - name: Send Discord message
         run: |
           curl -f -H "Content-Type: application/json" \
